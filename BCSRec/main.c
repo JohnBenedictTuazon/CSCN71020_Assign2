@@ -70,25 +70,25 @@ int getIntInput(char message[]) {
 	return input;
 }
 
-void setLength(int input, int *length) {
-	if (input >= 0 && input < 100) {
-		*length = input;
+int setLength(int input, int length) { // changed void to int to be able to unit test
+	if (input > 0 && input < 100) { // removed "=" sign for less than 0
+		length = input;
+	}	
+}
+
+int setWidth(int input, int width) { // changed void to int to be able to unit test
+	if (input > 0 && input < 100) { // removed equal sign for < 100
+		width = input;
 	}
 }
 
-void setWidth(int input, int *width) {
-	if (input > 0 && input <= 100) {
-		*width = input;
-	}
-}
-
-int getPerimeter(int *length, int *width) {
-	int perimeter = *length + *length + *width;
+int getPerimeter(int length, int width) {
+	int perimeter = length + length + width + width; // changed
 	return perimeter;
 }
 
-int getArea(int *length, int *width) {
-	int area = *length * *width;
+int getArea(int length, int width) {
+	int area = length * width;
 	return area;
 }
 
